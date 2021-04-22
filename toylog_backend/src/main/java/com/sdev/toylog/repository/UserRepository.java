@@ -10,4 +10,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Override
     List<User> findAll();
 
+    boolean existsByUserId(String userId);
+
+    boolean existsByEmail(String email);
+
 }

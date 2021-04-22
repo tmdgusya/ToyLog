@@ -31,10 +31,10 @@ public class Post extends BaseTimeEntity {
     @ManyToOne
     private User author;
 
-    @OneToMany(mappedBy = "post", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
     private final List<Comment> comments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "post", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
     private final List<Like> likes = new ArrayList<>();
 
 }

@@ -1,10 +1,14 @@
 package com.sdev.toylog.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
+@AllArgsConstructor
+@Builder
 @Getter
 @Entity
 public class User extends BaseTimeEntity {
@@ -15,7 +19,7 @@ public class User extends BaseTimeEntity {
     @Column(unique = true, length = 20, nullable = false)
     private String userId;
 
-    @Column(length = 15, nullable = false)
+    @Column(length = 80, nullable = false)
     private String password;
 
     @Column(length = 30, nullable = false)
