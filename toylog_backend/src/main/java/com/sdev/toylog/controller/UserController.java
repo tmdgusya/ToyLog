@@ -1,8 +1,6 @@
 package com.sdev.toylog.controller;
 
-import com.sdev.toylog.dto.request.EmailCheckRequest;
-import com.sdev.toylog.dto.request.IdCheckRequest;
-import com.sdev.toylog.dto.request.UserCreateRequest;
+import com.sdev.toylog.dto.request.*;
 import com.sdev.toylog.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +27,11 @@ public class UserController {
     @PostMapping
     public void registerUser(@Valid @RequestBody UserCreateRequest userCreateRequest) {
         userService.join(userCreateRequest);
+    }
+
+    @PostMapping("/login")
+    public LoginSuccessResponse loginUser(@Valid @RequestBody UserLoginRequest userLoginRequest) throws IllegalAccessException {
+        return userService.loginUser(userLoginRequest);
     }
 
 }
